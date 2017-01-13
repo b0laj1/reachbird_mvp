@@ -156,7 +156,7 @@ console.log('created new clarifai app');
             function(response) {
                 console.log('response is' + JSON.stringify(response.outputs[0].data.concepts));
                 if(response.outputs[0].data.concepts) {
-                    var x = response.data.outputs[0].data.concepts;
+                    var x = response.outputs[0].data.concepts;
                     x.forEach(function (o, index , arr) {
                         if(o.name && o.value && o.value > 0.55) {
                             var data = {tag: o.name, probability: o.value};
