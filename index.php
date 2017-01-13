@@ -53,7 +53,7 @@
 <form method="post" name="form">
 
 <div style="float: left;" id="holder">
-<img id="upload_instagram"  src="Images/Upload.png" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
+<img id="upload_instagram"  src="Images/Upload.PNG" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
     <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
 </div>
     <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
