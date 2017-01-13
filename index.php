@@ -17,7 +17,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="de/css/style.css">
 
 
 
@@ -39,26 +39,25 @@
 
 
 
-<div style="float: center; margin-right: 30%;" >
+<div style="float:left; margin-left: 3%;" >
 
 <form method="post" name="form">
 
-<div style="float: center;">
-<img id="image" onclick="openfilechooser()" src="Images/upload.png" class="image" style="position:bottom;  height: 300px; width: 300px margin: 10px;"></img>
+<div style="float: left;">
+<img id="image" onclick="openfilechooser()" src="Images/Upload.png" class="image" style="position:bottom;  max-height: 300px; max-width: 300px; margin: 10px;"></img>
 </div>
 
 
-<div style="float: center; margin-right: 30%;">
+<div style="float: left; margin-left: 10%;">
 <label>Caption:</label>
-<input type="textarea" name="caption" id="caption" data-emojiable="true" data-emoji-input="unicode" >
-<label>Hashtags:</label>
-<input type="text" name="caption" id="hashtag">
-<label></label>
-<input type="button" id="submit" value="Test" onclick="action()">
+<p class="lead emoji-picker-container">
+            <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
+          </p>
+
+<input style="margin-top:5%;" type="button" id="submit" value="Test" onclick="action()">
 </div>
 
 <input type="file" accept="image/*" onchange="loadFile(event)" style="visibility:hidden;" id="de">
-
 </form>
 </div>
 
@@ -66,15 +65,15 @@
 
 
 
-<div style="float: center; margin-right: 30%;">
+<div style="margin-right: 20%;margin-top:30%; margin-left: 3%;">
 <label>Engagement:</label>
-<input type="text" name="caption" id="eng">
+<input style="width: 70%;" type="text" name="caption" id="eng">
 
 <label>Suggestion:</label>
-<input type="text" name="caption" id="sug">
+<input style="width: 70%;" type="text" name="caption" id="sug">
 
 <label>Possible Engagement:</label>
-<input type="text" name="caption" id="posseng">
+<input style="width: 70%;" type="text" name="caption" id="posseng">
 </div>
 
 
