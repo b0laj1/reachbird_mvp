@@ -33,7 +33,16 @@
 
 
 <body>
-
+<style>
+    #holder { border: 10px dashed #ccc; width: 300px; min-height: 300px; margin: 20px auto;}
+    #holder.hover { border: 10px dashed #0c0; }
+    #holder img { display: block; margin: 10px auto; }
+    #holder p { margin: 10px; font-size: 14px; }
+    progress { width: 100%; }
+    progress:after { content: '%'; }
+    .fail { background: #c00; padding: 2px; color: #fff; }
+    .hidden { display: none !important;}
+</style>
 
 <h1 >Reachbird Advisor</h1>
 
@@ -43,9 +52,14 @@
 
 <form method="post" name="form">
 
-<div style="float: left;">
-<img id="image" onclick="openfilechooser()" src="Images/Upload.png" class="image" style="position:bottom;  max-height: 300px; max-width: 300px; margin: 10px;"></img>
+<div style="float: left;" id="holder">
+<img id="upload_instagram"  src="Images/Upload.png" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
+    <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
 </div>
+    <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+    <p id="filereader" class="hidden">File API & FileReader API not supported</p>
+    <p id="formdata" class="hidden">XHR2's FormData is not supported</p>
+    <p id="progress" class="hidden">XHR2's upload progress isn't supported</p>
 
 
 <div style="float: left; margin-left: 10%;">
@@ -77,28 +91,9 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<script src="jquery-3.1.1.js"></script>
+  <script src="jquery-3.1.1.js"></script>
+  <script src="bundle.js"></script>
+  <script src="js/upload_image.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/nanoscroller.min.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/tether.min.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/config.js"></script>

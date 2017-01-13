@@ -15,8 +15,6 @@ class io
      */
     public static function sendPostCurlRequest(array $request, $url)
     {
-        //Log the request data
-        Yii::info(\yii\helpers\VarDumper::dumpAsString($request));
         //url-ify the data for the POST
         $fields_string = http_build_query($request);
 
