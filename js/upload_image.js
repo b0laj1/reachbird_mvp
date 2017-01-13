@@ -154,6 +154,7 @@ console.log('created new clarifai app');
     return new Promise(function(resolve, reject) {
         app.models.predict(Clarifai.GENERAL_MODEL, image_url).then(
             function(response) {
+                console.log('response is' + response);
                 if(response.data.outputs[0].data.concepts) {
                     var x = response.data.outputs[0].data.concepts;
                     x.forEach(function (o, index , arr) {
@@ -161,6 +162,8 @@ console.log('created new clarifai app');
                             var data = {tag: o.name, probability: o.value};
                             tags.push(data);
                             if(index == (x.length - 1)) {
+                                console.log('tags resolved');
+                                console.log('tags');
                                 resolve(tags);
                             }
                         }
