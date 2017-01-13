@@ -182,7 +182,7 @@ function processTags(tags) {
     var t = "";
     tags.forEach(function (tag, index , arr) {
         t += tag.name + ", ";
-        if(index == (x.length - 1)) {
+        if(index == (tags.length - 1)) {
             //remove trailing comma
             t.replace(/(^,)|(,$)/g, "")
             tagsToTextArea(t);
