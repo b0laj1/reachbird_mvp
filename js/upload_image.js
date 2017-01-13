@@ -181,7 +181,7 @@ console.log('created new clarifai app');
 function processTags(tags) {
     var t = "";
     tags.forEach(function (tag, index , arr) {
-        t += tag.name + ", ";
+        t += tag.tag + ", ";
         if(index == (tags.length - 1)) {
             //remove trailing comma
             t.replace(/(^,)|(,$)/g, "")
@@ -194,10 +194,11 @@ function tagsToTextArea(tags) {
     var div = document.getElementById("image_tags_output");
     var input = document.createElement("textarea");
     document.getElementById('image_tags').remove();
+    document.getElementById('image_tags_label').className = "";
     input.name = "image_tags";
     input.id = "image_tags";
-    input.cols = "80";
-    input.rows = "40";
+    input.cols = "30";
+    input.rows = "10";
     input.append(tags);
     div.appendChild(input);
 }

@@ -67,6 +67,7 @@
 <p class="lead emoji-picker-container">
             <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
           </p>
+    <label id="image_tags_label" class="hidden">Image Tags:</label>
     <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
 
 <input style="margin-top:5%;" type="submit" id="submit" value="Test" onclick="action()">
