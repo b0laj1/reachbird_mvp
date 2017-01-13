@@ -42,6 +42,7 @@ function previewfile(file) {
             image.width = 250; // a fake resize
             image.id = "upload_instagram";
             document.getElementById("upload_instagram").remove();
+            document.getElementById('upload_progress').remove();
             holder.appendChild(image);
         };
 
@@ -79,10 +80,13 @@ function readfiles(files) {
                         console.log(image_url);
                         getTags(image_url)
                             .then(function(tags){
+                                console.log('these are the tags from clarifai');
+                                console.log(tags);
                                 processTags(tags);
 
                             })
                             .catch(function(ex) {
+                                console.log("error received from clarifai");
                                 console.log(ex);
                             });
                     }
