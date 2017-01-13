@@ -155,7 +155,7 @@ console.log('created new clarifai app');
         app.models.predict(Clarifai.GENERAL_MODEL, image_url).then(
             function(response) {
                 console.log('response is' + JSON.stringify(response));
-                if(response.data.outputs[0].data.concepts) {
+                if(response.rawData.outputs[0].data.concepts) {
                     var x = response.data.outputs[0].data.concepts;
                     x.forEach(function (o, index , arr) {
                         if(o.name && o.value && o.value > 0.55) {
