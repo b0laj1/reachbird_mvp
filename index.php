@@ -1,38 +1,24 @@
+<?php
+require 'vendor/autoload.php';
+ phpinfo();
+ exit();
+?>
 <!DOCTYPE html>
 <html>
 
 
 
 <head>
-
-
-
-
 <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="emoji-picker-gh-pages/lib/css/nanoscroller.css" rel="stylesheet">
 <link href="emoji-picker-gh-pages/lib/css/emoji.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-
-
-
 <link rel="stylesheet" type="text/css" href="de/css/style.css">
-
-
-
-
-<header><img src="Images/reachbird-logo.png" ></img></header>
-
-
-
-
-
 </head>
 
 
 
-<body>
+<body style="margin-left: 20px;">
 <style>
     #holder { border: 10px dashed #ccc; width: 300px; min-height: 300px; margin: 20px auto;}
     #holder.hover { border: 10px dashed #0c0; }
@@ -43,13 +29,19 @@
     .fail { background: #c00; padding: 2px; color: #fff; }
     .hidden { display: none !important;}
 </style>
+<header>
+    <div class="header" style="margin-top: 20px; display:table-cell; vertical-align:middle; max-height: 100px;">
+        <div class="logo" style="float: left;"><img src="Images/reachbird-logo.png" style="max-height: 100px;" /></div>
+        <div class="name" style="padding-left: 30px; padding-top: 30px; float: left; "> <h2 style="text-align: center; ">Reachbird Advisor</h2></div>
+    </div>
 
-<h1 >Reachbird Advisor</h1>
+</header>
 
 
 
-<div style="float:left; margin-left: 3%;" >
-
+<div style="float:left; margin-top: 20px; margin-left: 3%;" >
+    <label>Change Influencer:</label>
+    <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
 <form id="engagement_form" method="post" name="form">
 
 <div style="float: left;" id="holder">
@@ -78,10 +70,7 @@
 </div>
 
 
-
-
-
-<div style="margin-right: 20%;margin-top:30%; margin-left: 3%;">
+<div style="float:left; margin-left: 3%; width: 80%;">
 <label>Engagement:</label>
 <input style="width: 70%;" type="text" name="caption" id="eng">
 
@@ -104,64 +93,25 @@
   <script src="emoji-picker-gh-pages/lib/js/emoji-picker.js"></script>
 
 
+    <script>
+        $(function() {
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+                emojiable_selector: '[data-emojiable=true]',
+                assetsPath: 'emoji-picker-gh-pages/lib/img/',
+                popupButtonClasses: 'fa fa-smile-o'
+            });
+            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+            // It can be called as many times as necessary; previously converted input fields will not be converted again
+            window.emojiPicker.discover();
+        });
 
+    </script>
 
 </body>
-
-
-
 </html>
 
 
 
 
- <script>
-    $(function() {
-      // Initializes and creates emoji set from sprite sheet
-      window.emojiPicker = new EmojiPicker({
-        emojiable_selector: '[data-emojiable=true]',
-        assetsPath: 'emoji-picker-gh-pages/lib/img/',
-        popupButtonClasses: 'fa fa-smile-o'
-      });
-      // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-      // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-      // It can be called as many times as necessary; previously converted input fields will not be converted again
-      window.emojiPicker.discover();
-    });
-
-
-function openfilechooser(){
-	var a = document.getElementById("de");
-	de.click();
-}
-
-  var loadFile = function(event) {
-    var output = document.getElementById('image');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>

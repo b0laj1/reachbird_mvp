@@ -45,3 +45,6 @@ fabric.properties
 
 /node_modules/
 /uploads/
+
+/vendor/
+/config/config.php

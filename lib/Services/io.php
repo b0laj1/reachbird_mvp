@@ -1,6 +1,6 @@
 <?php
 
-namespace reachbird\services;
+namespace Reachbird\Services;
 
 
 class io
