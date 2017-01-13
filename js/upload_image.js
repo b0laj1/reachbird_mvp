@@ -79,10 +79,8 @@ function readfiles(files) {
                         console.log(image_url);
                         getTags(image_url)
                             .then(function(tags){
-                                var output = tags.data.concepts;
-                                if( typeof output != 'undefined') {
-                                    processTags(output);
-                                }
+                                processTags(tags);
+
                             })
                             .catch(function(ex) {
                                 console.log(ex);
@@ -152,7 +150,6 @@ console.log('created new clarifai app');
     return new Promise(function(resolve, reject) {
         app.models.predict(Clarifai.GENERAL_MODEL, image_url).then(
             function(response) {
-                console.log("response is: " + JSON.stringify(response));
                 if(response.data.outputs[0].data.concepts) {
                     var x = response.data.outputs[0].data.concepts;
                     x.forEach(function (o, index , arr) {
