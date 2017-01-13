@@ -50,7 +50,7 @@
 
 <div style="float:left; margin-left: 3%;" >
 
-<form method="post" name="form">
+<form id="engagement_form" method="post" name="form">
 
 <div style="float: left;" id="holder">
 <img id="upload_instagram"  src="Images/Upload.PNG" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
@@ -67,8 +67,9 @@
 <p class="lead emoji-picker-container">
             <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
           </p>
+    <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
 
-<input style="margin-top:5%;" type="button" id="submit" value="Test" onclick="action()">
+<input style="margin-top:5%;" type="submit" id="submit" value="Test" onclick="action()">
 </div>
 
 <input type="file" accept="image/*" onchange="loadFile(event)" style="visibility:hidden;" id="de">

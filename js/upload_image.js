@@ -79,7 +79,10 @@ function readfiles(files) {
                         console.log(image_url);
                         getTags(image_url)
                             .then(function(tags){
-                                alert(tags);
+                                var output = tags.data.concepts;
+                                if( typeof output != 'undefined') {
+                                    processTags(output);
+                                }
                             })
                             .catch(function(ex) {
                                 console.log(ex);
@@ -169,5 +172,28 @@ console.log('created new clarifai app');
             }
         );
     });
+}
 
+function processTags(tags) {
+    var t = "";
+    tags.forEach(function (tag, index , arr) {
+        t += tag.name + ", ";
+        if(index == (x.length - 1)) {
+            //remove trailing comma
+            t.replace(/(^,)|(,$)/g, "")
+            tagsToTextArea(t);
+        }
+    });
+}
+
+function tagsToTextArea(tags) {
+    var div = document.getElementById("image_tags_output");
+    var input = document.createElement("textarea");
+    document.getElementById('image_tags').remove();
+    input.name = "image_tags";
+    input.id = "image_tags";
+    input.cols = "80";
+    input.rows = "40";
+    input.append(tags);
+    div.appendChild(input);
 }
