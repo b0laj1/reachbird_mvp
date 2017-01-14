@@ -23,9 +23,6 @@ $chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
 <body>
 <div class="row">
     <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title"></div>
-        </div>
         <div class="x_content">
             <canvas id="mybarChart"></canvas>
         </div>
