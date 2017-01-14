@@ -47,6 +47,7 @@ require 'vendor/autoload.php';
         <div id="user_dashboard" style="width: 100%">
             <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0" style="width: 100%;"></iframe>
         </div>
+        <div style="width: 100%;"><hr /></div>
 
         <form id="engagement_form" method="post" name="form">
 
