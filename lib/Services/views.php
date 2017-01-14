@@ -11,7 +11,7 @@ class views
         $influencers = $db_object->getInfluencersNames();
         if (! empty($influencers)) {
             foreach ($influencers as $influencer) {
-                $id = $influencer['id'];
+                $id = $influencer['_id'];
                 $name = $influencer['username'];
                 $return .= "<option value='$id'>$name</option>";
             }
