@@ -60,7 +60,8 @@ function dateFromDate($date) {
                 <div class="col-xs-12 col-sm-12 emphasis">
                     <p class="ratings">
                         <a><i class="fa fa-user"></i><?php echo " " . number_format($user['followed_by']['count']) . " Followers"; ?></a> |
-                        <a href="#"><i class="fa fa-tags"></i> <?php echo " " . intval($user['posts']) . " Posts"; ?> </a>
+                        <a href="#"><i class="fa fa-tags"></i> <?php echo " " . intval($user['posts']) . " Posts"; ?> </a> |
+                        <a href="#"><i class="fa fa-twitter"></i> <?php echo "Engagement: " . intval($user['exp_eng_median'] * 100) . "%"; ?> </a> |
                     </p>
                 </div>
             </div>
