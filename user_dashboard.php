@@ -104,7 +104,7 @@ function dateFromDate($date) {
         <?php foreach ($user_posts as $post) {?>
         <div class="col-md-4 col-xs-12">
             <div class="left col-xs-5 text-center">
-                <img src="<?php echo $post['display_src']; ?>" alt="" class="img-circle img-responsive">
+                <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
             </div>
             <div class="right">
                 <div class="message_date">
@@ -113,11 +113,11 @@ function dateFromDate($date) {
                 </div>
                 <div class="message_wrapper">
                     <h4 class="heading"></h4>
-                    <blockquote class="message"><?php echo $post['caption']; ?></blockquote>
+                    <blockquote class="message"><?php echo substr($post['caption'], 0, 100) . "..."; ?></blockquote>
                     <br />
                     <p class="url">
                         <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                        <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                        <a href="#"><i class="fa fa-paperclip"></i> <?php echo $post['likes']['count'] . " likes, " .  $post['comments']['count'] . " comments " ?></a>
                     </p>
                 </div>
             </div>
