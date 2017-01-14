@@ -39,7 +39,7 @@ class views
         foreach ($labels as $v) {
             $return[] = [
                 'text' => $v['name'],
-                'size' => $user[$v['topic']]
+                'size' => intval($user[$v['topic']] * 100)
             ];
         }
         return json_encode($return);
