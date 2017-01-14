@@ -7,9 +7,7 @@ $chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
 
 <!DOCTYPE HTML>
 <html>
-
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">

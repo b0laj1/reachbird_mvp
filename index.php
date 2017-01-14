@@ -3,9 +3,7 @@ require 'vendor/autoload.php';
 ?>
 <!DOCTYPE HTML>
 <html>
-
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
 <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
 <link href="emoji-picker-gh-pages/lib/css/nanoscroller.css" rel="stylesheet">
