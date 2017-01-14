@@ -1,7 +1,5 @@
 <?php
 require 'vendor/autoload.php';
- phpinfo();
- exit();
 ?>
 <!DOCTYPE html>
 <html>
