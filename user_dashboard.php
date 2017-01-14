@@ -35,7 +35,7 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
                     </ul>
                 </div>
                 <div class="right col-xs-5 text-center">
-                    <img src="images/img.jpg" alt="" class="img-circle img-responsive">
+                    <img src="<?php echo $user['profile_pic_url']; ?>" alt="" class="img-circle img-responsive">
                 </div>
             </div>
             <div class="col-xs-12 bottom text-center">
