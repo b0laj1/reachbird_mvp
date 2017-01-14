@@ -92,7 +92,7 @@ img.emoji {
     padding-right: 35px;
     margin-bottom: 0px;
     min-height: 35px; /* 35 */
-    height: 30px;
+    height: 100px;
     max-height: 284px;
     overflow: auto;
     line-height: 17px;
