@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-$chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(7);
+$chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
 
 ?>
 
