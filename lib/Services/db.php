@@ -30,8 +30,11 @@ class db
         $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_PROFILES);
         $cursor = $collection->find();
 
+        $x=0;
         foreach ($cursor as $document) {
-            $return['id'] = $document['_id'];
+            $return[$x]['id'] = $document['_id'];
+            $return[$x]['name'] = $document['username'];
+            $x++;
         }
         return $return;
     }
