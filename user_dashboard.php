@@ -102,7 +102,7 @@ function dateFromDate($date) {
 
     <div class="col-md-12 col-xs-12 profile_details">
         <?php foreach ($user_posts as $post) {?>
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-2 col-xs-12">
             <div class="left col-md-4 text-center">
                 <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
             </div>
