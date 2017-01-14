@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 ?>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 
 
@@ -80,7 +80,7 @@ require 'vendor/autoload.php';
 
 </div>
 <div id="user_dashboard" style="float: right; width: 50%;">
-<iframe src="user.php" id="dashboard_iframe" seamless></iframe>
+<iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
 </div>
 
 
