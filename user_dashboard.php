@@ -103,24 +103,24 @@ function dateFromDate($date) {
     <div class="col-md-8 col-xs-12 profile_details">
         <?php foreach ($user_posts as $post) {?>
         <div class="col-md-4 col-xs-12">
-            <ul class="messages">
-                <li>
-                    <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
-                    <div class="message_date">
-                        <h3 class="date text-info"><?php echo dateFromDate($post['timestamp_str']); ?></h3>
-                        <p class="month"><?php echo monthFromDate($post['timestamp_str']); ?></p>
-                    </div>
-                    <div class="message_wrapper">
-                        <h4 class="heading"></h4>
-                        <blockquote class="message"><?php echo $post['caption']; ?></blockquote>
-                        <br />
-                        <p class="url">
-                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                        </p>
-                    </div>
-                </li>
-            </ul>
+            <div class="left col-xs-5 text-center">
+                <img src="<?php echo $post['display_src']; ?>" alt="" class="img-circle img-responsive">
+            </div>
+            <div class="right">
+                <div class="message_date">
+                    <h3 class="date text-info"><?php echo dateFromDate($post['timestamp_str']); ?></h3>
+                    <p class="month"><?php echo monthFromDate($post['timestamp_str']); ?></p>
+                </div>
+                <div class="message_wrapper">
+                    <h4 class="heading"></h4>
+                    <blockquote class="message"><?php echo $post['caption']; ?></blockquote>
+                    <br />
+                    <p class="url">
+                        <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                        <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                    </p>
+                </div>
+            </div>
         </div>
         <?php }?>
 
