@@ -22,9 +22,14 @@ class views
         return $return;
     }
 
-    public static function getSingleInfluencerDataJson($influencer_id) {
+    public static function getSingleInfluencerData($influencer_id) {
+        $return = [];
         $db = new db();
-
+        $influencer = $db->getSingleInfluencerData($influencer_id);
+        if(! empty($influencer)) {
+            $return = $influencer[0];
+        }
+        return $return;
     }
 
     public static function getLastTenPostsData($influencer_id) {
