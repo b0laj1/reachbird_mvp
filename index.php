@@ -80,7 +80,7 @@ require 'vendor/autoload.php';
 
 </div>
 <div id="user_dashboard" style="float: right; width: 50%;">
-<iframe src="user.php" id="dashboard_iframe"></iframe>
+<iframe src="user.php" id="dashboard_iframe" seamless></iframe>
 </div>
 
 
@@ -116,7 +116,6 @@ require 'vendor/autoload.php';
                     }
                 });
             }
-            alert(id);
             //document.getElementById('iframeid').src = document.getElementById('iframeid').src
         }
 
