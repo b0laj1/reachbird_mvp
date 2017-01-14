@@ -31,7 +31,7 @@ $chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
     </div>
 
     <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="row">
+        <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
                 <div class="count">2500</div>
@@ -49,7 +49,7 @@ $chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="row">
+        <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
                 <div class="count">4,567</div>
