@@ -30,6 +30,8 @@ class views
     public static function getLastTenPostsData($influencer_id) {
         $db = new db();
         $posts = $db->getLastPosts($influencer_id, 10);
+        var_dump($posts);
+        exit();
         if(! empty($posts)) {
             return json_encode([
                 "labels" => [10,9,8,7,6,5,4,3,2,1],
