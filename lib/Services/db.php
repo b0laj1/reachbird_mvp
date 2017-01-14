@@ -37,11 +37,7 @@ class db
     }
 
     private static function formatConnectionURL() {
-        $host = Config\Config::DB_HOST;
-        $port = Config\Config::DB_PORT;
-        $username = Config\Config::DB_USER;
-        $password = Config\Config::DB_PASSWORD;
-
-        return "mongodb://".$username.":".$password."@".$host.":".$port;
+        $url =  "mongodb://".Config\Config::DB_USER.":".Config\Config::DB_PASSWORD."@".Config\Config::DB_HOST.":".Config\Config::DB_PORT."/".Config\Config::DB_DATABASE;
+        return $url;
     }
 }

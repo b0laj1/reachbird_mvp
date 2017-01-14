@@ -47,4 +47,4 @@ fabric.properties
 /uploads/
 
 /vendor/
-/config/config.php
+/lib/Config/config.php
