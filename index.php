@@ -12,6 +12,7 @@ require 'vendor/autoload.php';
 <link href="emoji-picker-gh-pages/lib/css/emoji.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="de/css/style.css">
+<link rel="stylesheet" type="text/css" href="css/overlay.css">
 </head>
 
 
@@ -37,6 +38,8 @@ require 'vendor/autoload.php';
 
 
 <div style="float: left; width: 50%;">
+    <div id="target">
+    </div>
     <div style="float:left; margin-top: 20px; margin-left: 3%;" >
         <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
         <form id="engagement_form" method="post" name="form">
@@ -68,18 +71,16 @@ require 'vendor/autoload.php';
 
 
     <div style="float:left;margin-left: 3%;width: 90%; margin-bottom: 50px">
-        <label>Engagement:</label>
-        <input style="width: 100%;" type="text" name="engagement" id="eng">
-
         <label>Suggestion:</label>
-        <input style="width: 100%;" type="text" name="suggestion" id="sug">
+        <input style="width: 100%;" disabled="disabled" type="text" name="suggestion" id="sug">
 
         <label>Possible Engagement:</label>
-        <input style="width: 100%;" type="text" name="predicted_engagement" id="posseng">
+        <input style="width: 100%;" disabled="disabled" type="text" name="predicted_engagement" id="posseng">
     </div>
+
 </div>
-<div style="float: right; width: 50%;">
-    blah here
+<div id="user_dashboard" style="float: right; width: 50%;">
+<iframe src="user.php" id="dashboard_iframe"></iframe>
 </div>
 
 
@@ -93,12 +94,30 @@ require 'vendor/autoload.php';
   <script src="emoji-picker-gh-pages/lib/js/util.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/jquery.emojiarea.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/emoji-picker.js"></script>
+    <script type="text/javascript" src="js/overlay.js"></script>
 
 
     <script>
         function getInfluencerData(influencer) {
             var id = influencer.value;
+            if(id) {
+                $('#target').addClass('loading');
+                $.ajax({
+                    type: "POST",
+                    url: 'set_user.php',
+                    data: {user_id: id},
+                    success: function(response) {
+                        $('#target').loadingOverlay('remove');
+                        document.getElementById('dashboard_iframe').src = document.getElementById('dashboard_iframe').src;
+                    },
+                    error: function (err) {
+                        alert("some error occurred" + err);
+                        $('#target').loadingOverlay('remove');
+                    }
+                });
+            }
             alert(id);
+            //document.getElementById('iframeid').src = document.getElementById('iframeid').src
         }
 
         $(function() {
