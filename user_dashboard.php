@@ -61,8 +61,8 @@ function dateFromDate($date) {
                     <p class="ratings">
                         <a><i class="fa fa-user"></i><?php echo " " . number_format($user['followed_by']['count']) . " Followers"; ?></a>
                         <a href="#"><i class="fa fa-tags"></i> <?php echo " " . intval($user['posts']) . " Posts"; ?> </a>
-                        <a href="#"><i class="fa fa-twitter"></i> <?php echo "Expected Engagement: " . intval($user['exp_eng_median'] * 100) . "%"; ?> </a>
-                        <a href="#"><i class="fa fa-eraser"></i> <?php echo "Actual Engagement: " . intval($user['eng_median'] * 100) . "%"; ?> </a>
+                        <a href="#"><i class="fa fa-twitter"></i> <?php echo "Expected Engagement: " . number_format((float) $user['exp_eng_median'] * 100, 2, '.', '') . "%"; ?> </a>
+                        <a href="#"><i class="fa fa-eraser"></i> <?php echo "Actual Engagement: " . number_format((float) $user['eng_median'] * 100, 2, '.', '') . "%"; ?> </a>
                     </p>
                 </div>
             </div>
