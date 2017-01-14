@@ -40,12 +40,12 @@ require 'vendor/autoload.php';
 <div style="float: left; width: 100%;">
     <div id="target">
     </div>
-    <div style="float:left; margin-top: 20px; margin-left: 3%;" >
+    <div style="float:left; margin-top: 20px; margin-left: 3%; width: 90%;" >
         <div id="select_influencer">
             <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
         </div>
         <div id="user_dashboard" style="width: 100%">
-            <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
+            <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0" style="width: 100%;"></iframe>
         </div>
 
         <form id="engagement_form" method="post" name="form">
