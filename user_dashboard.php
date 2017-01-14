@@ -35,6 +35,7 @@ function dateFromDate($date) {
     <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="de/css/style.css">
     <link rel="stylesheet" type="text/css" href="css/overlay.css">
+    <link rel="stylesheet" type="text/css" href="css/equaal.css">
     <link rel="stylesheet" type="text/css" href="css/custom.min.css">
 </head>
 
