@@ -36,7 +36,7 @@ class views
             $likes = [];
             $comments = [];
             foreach ($posts as $post) {
-                $labels[] = $post['caption'];
+                $labels[] = substr($post['caption'], 0, 20);
                 $likes[] = $post['likes']['count'];
                 $comments[] = $post['comments']['count'];
             }
