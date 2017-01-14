@@ -1,4 +1,4 @@
-/*function wordcloud(input, width, height) {
+function wordcloud(input, width, height) {
     var fill = d3.scale.category20();
 
     d3.layout.cloud()
@@ -55,8 +55,9 @@
     var bbox = svg.getBBox();
     var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
     svg.setAttribute("viewBox", viewBox);
-}*/
+}
 
+/*
 function wordcloud(input, width, height) {
     var fill = d3.scale.category20();
 
@@ -142,4 +143,4 @@ function randomWord() {
 function randomWeight(){
     var r = Math.round(Math.random() * 100);
     return r;
-}
+}*/
