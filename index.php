@@ -80,7 +80,7 @@ require 'vendor/autoload.php';
 
 </div>
 <div id="user_dashboard" style="float: right; width: 50%;">
-<iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
+<iframe src="https://espnfc.com" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
 </div>
 
 
@@ -107,8 +107,9 @@ require 'vendor/autoload.php';
                     url: 'set_user.php',
                     data: {user_id: id},
                     success: function(response) {
-                        $('#target').loadingOverlay('remove');
+
                         document.getElementById('dashboard_iframe').src = document.getElementById('dashboard_iframe').src;
+                        checkIframeLoaded('dashboard_iframe');
                     },
                     error: function (err) {
                         alert("some error occurred" + err);
@@ -116,7 +117,7 @@ require 'vendor/autoload.php';
                     }
                 });
             }
-            //document.getElementById('iframeid').src = document.getElementById('iframeid').src
+
         }
 
         $(function() {
@@ -131,6 +132,30 @@ require 'vendor/autoload.php';
             // It can be called as many times as necessary; previously converted input fields will not be converted again
             window.emojiPicker.discover();
         });
+
+        function checkIframeLoaded(id) {
+            // Get a handle to the iframe element
+            var iframe = document.getElementById(id);
+            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Check if loading is complete
+            if (  iframeDoc.readyState  == 'complete' ) {
+                //iframe.contentWindow.alert("Hello");
+                iframe.contentWindow.onload = function(){
+
+                };
+                // The loading is complete, call the function we want executed once the iframe is loaded
+                afterLoading();
+                return;
+            }
+
+            // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
+            window.setTimeout('checkIframeLoaded();', 100);
+        }
+
+        function afterLoading(){
+            $('#target').loadingOverlay('remove');
+        }
 
     </script>
 
