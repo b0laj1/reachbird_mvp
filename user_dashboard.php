@@ -8,8 +8,6 @@ $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id'
 <!DOCTYPE HTML>
 <html>
 
-
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
@@ -22,13 +20,19 @@ $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id'
 
 <body>
 <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+    <div class="col-md-4 col-xs-12">
+
+    </div>
+
+    <div class="col-md-4 col-xs-12">
         <div class="x_content">
-            <canvas id="mybarChart"></canvas>
+            <canvas id="myLineChart"></canvas>
         </div>
     </div>
 
-    <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="col-md-4 col-xs-12">
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
@@ -70,7 +74,7 @@ $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id'
 
 <script type="text/javascript" src="js/Chart.min.js"></script>
 <script>
-    drawLineChart('mybarChart', <?php echo $chart_data; ?>);
+    drawLineChart('myLineChart', <?php echo $chart_data; ?>);
     function drawBarChart(element_id, data) {
         var ctx = document.getElementById(element_id);
         var mybarChart = new Chart(ctx, {
