@@ -29,10 +29,6 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
                 <div class="left col-xs-7">
                     <h2><?php echo  isset($user['full_name']) ? $user['full_name'] : $user['username'];  ?></h2>
                     <p><strong>About: </strong> <?php echo  isset($user['biography']) ? $user['biography'] : "Incognito";  ?></p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-building"></i> Address: </li>
-                        <li><i class="fa fa-phone"></i> Phone #: </li>
-                    </ul>
                 </div>
                 <div class="right col-xs-5 text-center">
                     <img src="<?php echo $user['profile_pic_url']; ?>" alt="" class="img-circle img-responsive">
@@ -41,8 +37,8 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
             <div class="col-xs-12 bottom text-center">
                 <div class="col-xs-12 col-sm-6 emphasis">
                     <p class="ratings">
-                        <a><?php echo $user['followed_by']['count']; ?></a>
-                        <a href="#"> followers</a>
+                        <a><?php echo number_format($user['followed_by']['count']) . " followers"; ?></a>
+                        <a href="#"> </a>
                     </p>
                 </div>
                 <div class="col-xs-12 col-sm-6 emphasis">
