@@ -36,47 +36,52 @@ require 'vendor/autoload.php';
 </header>
 
 
+<div style="float: left; width: 50%;">
+    <div style="float:left; margin-top: 20px; margin-left: 3%;" >
+        <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
+        <form id="engagement_form" method="post" name="form">
 
-<div style="float:left; margin-top: 20px; margin-left: 3%;" >
-    <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
-<form id="engagement_form" method="post" name="form">
+            <div style="float: left;" id="holder">
+                <img id="upload_instagram"  src="Images/Upload.PNG" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
+                <p id="upload_progress">Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+            </div>
+            <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+            <p id="filereader" class="hidden">File API & FileReader API not supported</p>
+            <p id="formdata" class="hidden">XHR2's FormData is not supported</p>
+            <p id="progress" class="hidden">XHR2's upload progress isn't supported</p>
 
-<div style="float: left;" id="holder">
-<img id="upload_instagram"  src="Images/Upload.PNG" class="image" style="position:bottom;  max-height: 200px; max-width: 280px; margin: 10px;" />
-    <p id="upload_progress">Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+
+            <div style="float: left; margin-left: 10%;">
+                <label>Caption:</label>
+                <p class="lead emoji-picker-container">
+                    <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
+                </p>
+                <label id="image_tags_label" class="hidden">Image Tags:</label>
+                <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
+
+                <input style="margin-top:5%;" type="submit" id="submit" value="Test" onclick="action()">
+            </div>
+
+            <input type="file" accept="image/*" onchange="loadFile(event)" style="visibility:hidden;" id="de">
+        </form>
+    </div>
+
+
+    <div style="float:left;margin-left: 3%;width: 50%; margin-bottom: 50px">
+        <label>Engagement:</label>
+        <input style="width: 100%;" type="text" name="engagement" id="eng">
+
+        <label>Suggestion:</label>
+        <input style="width: 100%;" type="text" name="suggestion" id="sug">
+
+        <label>Possible Engagement:</label>
+        <input style="width: 100%;" type="text" name="predicted_engagement" id="posseng">
+    </div>
 </div>
-    <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
-    <p id="filereader" class="hidden">File API & FileReader API not supported</p>
-    <p id="formdata" class="hidden">XHR2's FormData is not supported</p>
-    <p id="progress" class="hidden">XHR2's upload progress isn't supported</p>
-
-
-<div style="float: left; margin-left: 10%;">
-<label>Caption:</label>
-<p class="lead emoji-picker-container">
-            <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
-          </p>
-    <label id="image_tags_label" class="hidden">Image Tags:</label>
-    <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
-
-<input style="margin-top:5%;" type="submit" id="submit" value="Test" onclick="action()">
+<div style="float: right; width: 50%;">
+    blah here
 </div>
 
-<input type="file" accept="image/*" onchange="loadFile(event)" style="visibility:hidden;" id="de">
-</form>
-</div>
-
-
-<div style="float:left;margin-left: 3%;width: 50%; margin-bottom: 50px">
-<label>Engagement:</label>
-<input style="width: 100%;" type="text" name="engagement" id="eng">
-
-<label>Suggestion:</label>
-<input style="width: 100%;" type="text" name="suggestion" id="sug">
-
-<label>Possible Engagement:</label>
-<input style="width: 100%;" type="text" name="predicted_engagement" id="posseng">
-</div>
 
 
   <script src="jquery-3.1.1.js"></script>
