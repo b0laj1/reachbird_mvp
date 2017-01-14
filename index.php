@@ -1,5 +1,10 @@
 <?php
+if(! $_SESSION) {
+    session_start();
+}
+unset($_SESSION['user_id']);
 require 'vendor/autoload.php';
+
 ?>
 <!DOCTYPE HTML>
 <html>
