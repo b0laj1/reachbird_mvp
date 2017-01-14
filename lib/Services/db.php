@@ -39,7 +39,18 @@ class db
     public function getSingleInfluencerData($id) {
         $return = [];
         $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_PROFILES);
-        $cursor = $collection->find([ '_id' => $id ]);
+        $cursor = $collection->find([ 'id' => $id ]);
+
+        if(! empty($cursor)) {
+            return $cursor->toArray();
+        }
+        return $return;
+    }
+
+    public function getLastPosts($id, int $count) {
+        $return = [];
+        $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_SAMPLES);
+        $cursor = $collection->find(['owner.id'=>$id], [ 'limit' => $count, 'sort'=>['date'=> -1] ]);
 
         if(! empty($cursor)) {
             return $cursor->toArray();
