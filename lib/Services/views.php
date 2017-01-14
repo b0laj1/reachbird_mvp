@@ -32,8 +32,16 @@ class views
         $posts = $db->getLastPosts($influencer_id, 10);
 
         if(! empty($posts)) {
+            $labels = [];
+            $likes = [];
+            $comments = [];
+            foreach ($posts as $post) {
+                $labels[] = $post['caption'];
+                $likes[] = $post['likes']['count'];
+                $comments[] = $post['comments']['count'];
+            }
             return json_encode([
-                "labels" => [10,9,8,7,6,5,4,3,2,1],
+                "labels" => $labels,
                 "datasets" => [
                     [
                         'label'=>'Post Likes',
@@ -44,7 +52,7 @@ class views
                         "pointHoverBackgroundColor" => "#fff",
                         "pointHoverBorderColor" => "rgba(220,220,220,1)",
                         "pointBorderWidth" => 1,
-                        "data" => [31, 74, 6, 39, 20, 85, 7]
+                        "data" => $likes
                     ],
                     [
                         'label'=>'Post Comments',
@@ -55,7 +63,7 @@ class views
                         "pointHoverBackgroundColor" => "#fff",
                         "pointHoverBorderColor" => "rgba(151,187,205,1)",
                         "pointBorderWidth" => 1,
-                        "data" => [82, 23, 66, 9, 99, 4, 2]
+                        "data" => $comments
                     ],
                 ]
             ]);
