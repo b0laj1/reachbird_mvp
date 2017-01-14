@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id']);
 $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id']);
 $user_topics = \Reachbird\Services\views::getUserTopics($user);
-$user_posts = \Reachbird\Services\views::getLastPosts($_SESSION['user_id'], 5);
+$user_posts = \Reachbird\Services\views::getLastPosts($_SESSION['user_id'], 4);
 
 function dayFromDate($date) {
     $timestamp = strtotime($date);
@@ -102,7 +102,7 @@ function dateFromDate($date) {
 
     <div class="col-md-12 col-xs-12 profile_details">
         <?php foreach ($user_posts as $post) {?>
-        <div class="col-md-2 col-xs-12">
+        <div class="col-md-3 col-xs-12">
             <div class="left col-md-4 text-center">
                 <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
             </div>
