@@ -41,12 +41,8 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
             <div class="col-xs-12 bottom text-center">
                 <div class="col-xs-12 col-sm-6 emphasis">
                     <p class="ratings">
-                        <a>4.0</a>
-                        <a href="#"><span class="fa fa-star"></span></a>
-                        <a href="#"><span class="fa fa-star"></span></a>
-                        <a href="#"><span class="fa fa-star"></span></a>
-                        <a href="#"><span class="fa fa-star"></span></a>
-                        <a href="#"><span class="fa fa-star-o"></span></a>
+                        <a><?php echo $user['followed_by']['count']; ?></a>
+                        <a href="#"> followers</a>
                     </p>
                 </div>
                 <div class="col-xs-12 col-sm-6 emphasis">
