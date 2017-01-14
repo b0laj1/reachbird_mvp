@@ -37,7 +37,7 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
             <div class="col-xs-12 bottom text-center">
                 <div class="col-xs-12 col-sm-6 emphasis">
                     <p class="ratings">
-                        <a><?php echo number_format($user['followed_by']['count']) . " followers"; ?></a>
+                        <a><i class="fa fa-user"></i><?php echo number_format($user['followed_by']['count']) . " Followers"; ?></a>
                         <a href="#"> </a>
                     </p>
                 </div>
