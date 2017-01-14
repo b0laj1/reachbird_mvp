@@ -105,7 +105,7 @@ function dateFromDate($date) {
         <div class="col-md-4 col-xs-12">
             <ul class="messages">
                 <li>
-                    <img src="<?php echo $post['display_src']; ?>" class="avatar" alt="Avatar">
+                    <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
                     <div class="message_date">
                         <h3 class="date text-info"><?php echo dateFromDate($post['timestamp_str']); ?></h3>
                         <p class="month"><?php echo monthFromDate($post['timestamp_str']); ?></p>
