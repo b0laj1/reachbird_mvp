@@ -60,10 +60,10 @@ require 'vendor/autoload.php';
             <p id="progress" class="hidden">XHR2's upload progress isn't supported</p>
 
 
-            <div style="float: left; margin-left: 10%;">
+            <div style="float: left; margin-left: 30px; width: 60%;">
                 <label>Caption:</label>
                 <p class="lead emoji-picker-container">
-                    <textarea class="form-control textarea-control" rows="3" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
+                    <textarea class="form-control textarea-control"  style="height: 30px;" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
                 </p>
                 <label id="image_tags_label" class="hidden">Image Tags:</label>
                 <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
