@@ -6,6 +6,10 @@ namespace Reachbird\Services;
 class data
 {
 
+    /**
+     * Get dictionary
+     * @return array
+     */
     public static function getDictionary () {
 
         $dictionary = [

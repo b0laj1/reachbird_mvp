@@ -37,11 +37,17 @@ require 'vendor/autoload.php';
 </header>
 
 
-<div style="float: left; width: 50%;">
+<div style="float: left; width: 100%;">
     <div id="target">
     </div>
     <div style="float:left; margin-top: 20px; margin-left: 3%;" >
-        <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
+        <div id="select_influencer">
+            <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
+        </div>
+        <div id="user_dashboard" style="width: 100%">
+            <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
+        </div>
+
         <form id="engagement_form" method="post" name="form">
 
             <div style="float: left;" id="holder">
@@ -79,9 +85,7 @@ require 'vendor/autoload.php';
     </div>
 
 </div>
-<div id="user_dashboard" style="float: right; width: 50%;">
-<iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0"></iframe>
-</div>
+
 
 
 
