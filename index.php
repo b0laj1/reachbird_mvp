@@ -67,7 +67,7 @@ require 'vendor/autoload.php';
     </div>
 
 
-    <div style="float:left;margin-left: 3%;width: 50%; margin-bottom: 50px">
+    <div style="float:left;margin-left: 3%;width: 90%; margin-bottom: 50px">
         <label>Engagement:</label>
         <input style="width: 100%;" type="text" name="engagement" id="eng">
 
