@@ -58,6 +58,7 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="col-md-4 col-xs-12">
         <div class="x_content">
