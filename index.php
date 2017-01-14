@@ -98,7 +98,7 @@ require 'vendor/autoload.php';
   <script src="emoji-picker-gh-pages/lib/js/util.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/jquery.emojiarea.js"></script>
   <script src="emoji-picker-gh-pages/lib/js/emoji-picker.js"></script>
-    <script type="text/javascript" src="js/overlay.js"></script>
+  <script type="text/javascript" src="js/overlay.js"></script>
 
 
     <script>

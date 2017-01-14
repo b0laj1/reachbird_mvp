@@ -198,7 +198,7 @@ function tagsToTextArea(tags) {
     input.name = "image_tags";
     input.id = "image_tags";
     input.cols = "30";
-    input.rows = "4";
+    input.rows = "3";
     input.append(tags);
     div.appendChild(input);
 }
