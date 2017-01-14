@@ -355,7 +355,7 @@ class data
      $letters = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
      $color = '#';
      for($i=0; $i<6; $i++) {
-         $color .= $letters[(int)floor(rand() * 16)];
+         $color .= $letters[rand(0, 15)];
      }
 
      return $color;
