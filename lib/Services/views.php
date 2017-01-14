@@ -89,4 +89,13 @@ class views
         return json_encode([]);
 
     }
+
+    public static function getLastPosts($id, $count) {
+        $db = new db();
+        $posts = $db->getLastPosts($id, $count);
+        if(! empty($posts) ) {
+            return $posts;
+        }
+        return [];
+    }
 }
