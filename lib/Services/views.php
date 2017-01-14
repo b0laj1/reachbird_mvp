@@ -21,4 +21,9 @@ class views
 
         return $return;
     }
+
+    public static function getSingleInfluencerDataJson($influencer_id) {
+        $db = new db();
+
+    }
 }

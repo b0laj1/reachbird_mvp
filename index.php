@@ -67,15 +67,15 @@ require 'vendor/autoload.php';
 </div>
 
 
-<div style="float:left; margin-left: 3%; width: 50%;">
+<div style="float:left;margin-left: 3%;width: 65%; margin-bottom: 50px">
 <label>Engagement:</label>
-<input style="width: 50%;" type="text" name="caption" id="eng">
+<input style="width: 100%;" type="text" name="engagement" id="eng">
 
 <label>Suggestion:</label>
-<input style="width: 50%;" type="text" name="caption" id="sug">
+<input style="width: 100%;" type="text" name="suggestion" id="sug">
 
 <label>Possible Engagement:</label>
-<input style="width: 50%;" type="text" name="caption" id="posseng">
+<input style="width: 100%;" type="text" name="predicted_engagement" id="posseng">
 </div>
 
 
