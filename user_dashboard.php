@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 
 $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id']);
 $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id']);
+$user_topics = \Reachbird\Services\views::getUserTopics($user);
 
 ?>
 
@@ -71,29 +72,20 @@ $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id'])
         </div>
         <div class="clearfix"></div>
         <div class="row tile_count">
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-                <div class="count">4,567</div>
-                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-                <div class="count">2,315</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-                <div class="count">7,325</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
+            <div id="cloud"></div>
         </div>
     </div>
 </div>
 <div class="clearfix"></div>
 
 <script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/jasondavies/d3-cloud/v1.2.1/build/d3.layout.cloud.js"></script>
+<script type="text/javascript" src="js/wordcloud.js"></script>
 <script>
     drawLineChart('myLineChart', <?php echo $chart_data; ?>);
+    wordcloud(<?php echo $user_topics; ?>, 300, 300);
+
     function drawBarChart(element_id, data) {
         var ctx = document.getElementById(element_id);
         var mybarChart = new Chart(ctx, {

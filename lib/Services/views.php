@@ -32,6 +32,19 @@ class views
         return $return;
     }
 
+    public static function getUserTopics($user) {
+        $return = [];
+        //{ text: 'javascript', size: 40 }
+        $labels = data::getAllTopicLabels();
+        foreach ($labels as $v) {
+            $return[] = [
+                'text' => $v['name'],
+                'size' => $user[$v['topic']]
+            ];
+        }
+        return json_encode($return);
+    }
+
     public static function getLastTenPostsData($influencer_id) {
         $db = new db();
         $posts = $db->getLastPosts($influencer_id, 10);

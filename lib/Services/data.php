@@ -341,6 +341,18 @@ class data
 
     }
 
+    public static function getAllTopicLabels() {
+        $dictionary = self::getDictionary();
+        $labels = [];
+        $x = 0;
+        foreach ($dictionary as $key=>$value) {
+            $labels[$x]['topic'] = $key;
+            $labels[$x]['name'] = $value['topic_name'];
+            $x++;
+        }
+        return $labels;
+    }
+
     private static function getLabels($label, $topics) {
         $dictionary = self::getDictionary();
         $return = [];
@@ -349,6 +361,8 @@ class data
         }
         return $return;
     }
+
+
 
     private static function randomColor() {
 
