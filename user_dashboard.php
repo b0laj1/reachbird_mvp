@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 $chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id']);
 $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id']);
 $user_topics = \Reachbird\Services\views::getUserTopics($user);
-$user_posts = \Reachbird\Services\views::getLastPosts($_SESSION['user_id'], 3);
+$user_posts = \Reachbird\Services\views::getLastPosts($_SESSION['user_id'], 5);
 
 function dayFromDate($date) {
     $timestamp = strtotime($date);
@@ -100,7 +100,7 @@ function dateFromDate($date) {
 <div class="clearfix"></div>
 <div class="row">
 
-    <div class="col-md-8 col-xs-12 profile_details">
+    <div class="col-md-12 col-xs-12 profile_details">
         <?php foreach ($user_posts as $post) {?>
         <div class="col-md-4 col-xs-12">
             <div class="left col-md-4 text-center">
@@ -126,23 +126,6 @@ function dateFromDate($date) {
 
     </div>
 
-    <div class="col-md-4 col-xs-12">
-        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-            <div class="count">2500</div>
-            <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-            <div class="count">123.50</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-            <div class="count green">2,500</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-        </div>
-    </div>
 </div>
 
 <script type="text/javascript" src="js/Chart.min.js"></script>
