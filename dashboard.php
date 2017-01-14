@@ -14,6 +14,7 @@ $chart_data = \Reachbird\Services\data::getGeneralDashboardDataByTopic(10);
     <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="de/css/style.css">
     <link rel="stylesheet" type="text/css" href="css/overlay.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.min.css">
 </head>
 
 
