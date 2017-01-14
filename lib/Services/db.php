@@ -28,7 +28,11 @@ class db
     public function getInfluencersNames() {
         $return = [];
         $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_PROFILES);
-        $cursor = $collection->find();
+        $cursor = $collection->find([
+            'eng_median' => [
+                '$exists' => true
+            ]
+        ]);
 
         $x=0;
         foreach ($cursor as $document) {
