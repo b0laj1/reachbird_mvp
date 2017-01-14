@@ -316,4 +316,49 @@ class data
 
         return $dictionary;
     }
+
+    public static function getGeneralDashboardDataByTopic($count) {
+        $dictionary = self::getDictionary();
+        $topics = array_rand($dictionary, $count);
+
+        //format the response array
+       return json_encode([
+            "labels" => self::getLabels('topic_name', $topics),
+           "datasets" => [
+                [
+                    'label'=>'Average Likes',
+                    'backgroundColor'=> self::randomColor(),
+                    'data' => self::getLabels('mean_likes', $topics)
+                ],
+               [
+                   'label'=>'Average Comments',
+                   'backgroundColor'=> self::randomColor(),
+                   'data' => self::getLabels('mean_comments', $topics)
+               ],
+           ]
+        ]);
+
+
+    }
+
+    private static function getLabels($label, $topics) {
+        $dictionary = self::getDictionary();
+        $return = [];
+        foreach($topics as $topic) {
+            $return[] = $dictionary[$topic][$label];
+        }
+        return $return;
+    }
+
+    private static function randomColor() {
+
+     $letters = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+     $color = '#';
+     for($i=0; $i<6; $i++) {
+         $color .= $letters[(int)floor(rand() * 16)];
+     }
+
+     return $color;
+
+    }
 }

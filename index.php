@@ -45,7 +45,7 @@ require 'vendor/autoload.php';
             <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
         </div>
         <div id="user_dashboard" style="width: 100%">
-            <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0" style="width: 100%; height: 400px;"></iframe>
+            <iframe src="user.php" id="dashboard_iframe" scrolling="no" frameBorder="0" style="width: 100%; height: 300px;"></iframe>
         </div>
         <div style="width: 100%;"><hr /></div>
 
