@@ -103,21 +103,21 @@ function dateFromDate($date) {
     <div class="col-md-8 col-xs-12 profile_details">
         <?php foreach ($user_posts as $post) {?>
         <div class="col-md-4 col-xs-12">
-            <div class="left col-xs-5 text-center">
+            <div class="left col-md-4 text-center">
                 <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
             </div>
-            <div class="right">
+            <div class="right col-md-8">
                 <div class="message_date">
                     <h3 class="date text-info"><?php echo dateFromDate($post['timestamp_str']); ?></h3>
                     <p class="month"><?php echo monthFromDate($post['timestamp_str']); ?></p>
                 </div>
                 <div class="message_wrapper">
-                    <h4 class="heading"></h4>
+                    <h4 class="heading"><?php echo $post['username']; ?></h4>
                     <blockquote class="message"><?php echo substr($post['caption'], 0, 100) . "..."; ?></blockquote>
                     <br />
                     <p class="url">
                         <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                        <a href="#"><i class="fa fa-paperclip"></i> <?php echo $post['likes']['count'] . " likes, " .  $post['comments']['count'] . " comments " ?></a>
+                        <a href="#"><i class="fa fa-share-alt"></i> <?php echo $post['likes']['count'] . " likes, " .  $post['comments']['count'] . " comments " ?></a>
                     </p>
                 </div>
             </div>
