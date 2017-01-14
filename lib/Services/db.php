@@ -26,21 +26,14 @@ class db
      * @return array
      */
     public function getInfluencersNames() {
-        $return = [];
         $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_PROFILES);
         $cursor = $collection->find([
             'eng_median' => [
                 '$exists' => true
             ]
-        ]);
+        ],['sort'=>['username'=> 1]]);
 
-        $x=0;
-        foreach ($cursor as $document) {
-            $return[$x]['id'] = $document['_id'];
-            $return[$x]['name'] = $document['username'];
-            $x++;
-        }
-        return $return;
+        return $cursor->toArray();
     }
 
     public function getSingleInfluencerData($id) {

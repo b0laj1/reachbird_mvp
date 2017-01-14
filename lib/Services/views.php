@@ -12,7 +12,7 @@ class views
         if (! empty($influencers)) {
             foreach ($influencers as $influencer) {
                 $id = $influencer['id'];
-                $name = $influencer['name'];
+                $name = $influencer['username'];
                 $return .= "<option value='$id'>$name</option>";
             }
         }
