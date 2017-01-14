@@ -38,7 +38,6 @@ require 'vendor/autoload.php';
 
 
 <div style="float:left; margin-top: 20px; margin-left: 3%;" >
-    <label>Change Influencer:</label>
     <?php echo \Reachbird\Services\views::generateInfluencerSelect(); ?>
 <form id="engagement_form" method="post" name="form">
 
@@ -92,6 +91,11 @@ require 'vendor/autoload.php';
 
 
     <script>
+        function getInfluencerData(influencer) {
+            var id = influencer.value;
+            alert(id);
+        }
+
         $(function() {
             // Initializes and creates emoji set from sprite sheet
             window.emojiPicker = new EmojiPicker({
