@@ -1,44 +1,43 @@
-function wordcloud(input, width, height) {
-    var fill = d3.scale.category20();
-    var maxSize = d3.max(input, function(d) { return d.size; }),
-        maxFont = 40;
+function wordcloud(words, width, height) {
+    maxSize = d3.max(words, function(d) {
+        return d.size;
+    });
+    minSize = d3.min(words, function(d) {
+        return d.size;
+    });
 
-    d3.layout.cloud()
-        .size([width, height])
-        .words(input)
+    var fontScale = d3.scale.linear() // scale algo which is used to map the domain to the range
+        .domain([minSize, maxSize]) //set domain which will be mapped to the range values
+        .range([5, 40]); // set min/max font size (so no matter what the size of the highest word it will be set to 40 in this case)
+
+
+    var fill = d3.scale.category20();
+    d3.layout.cloud().size([width, height])
+        .words(words)
+        .padding(5)
         .rotate(function() {
             return ~~(Math.random() * 2) * 90;
         })
         .font("Impact")
         .fontSize(function(d) {
-            return d.size;
-        })
-        .on("end", drawSkillCloud)
+            return fontScale(d.size)
+        }) // the d3 scale function is used here
+        .on("end", draw)
         .start();
 
-// Finally implement `drawSkillCloud`, which performs the D3 drawing:
 
-    // apply D3.js drawing API
-    function drawSkillCloud(words) {
+    function draw(words) {
         d3.select("#cloud").append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", 300)
+            .attr("height", 300)
             .append("g")
-            .attr("transform", "translate(" + ~~(width / 2) + "," + ~~(height / 2) + ")")
+            .attr("transform", "translate(150,150)")
             .selectAll("text")
             .data(words)
             .enter().append("text")
             .style("font-size", function(d) {
-                var size= ( (d.size / maxSize) * maxFont );
-                return (size < 5 ? d.size : size ) + "px";
+                return d.size + "px";
             })
-            .style("-webkit-touch-callout", "none")
-            .style("-webkit-user-select", "none")
-            .style("-khtml-user-select", "none")
-            .style("-moz-user-select", "none")
-            .style("-ms-user-select", "none")
-            .style("user-select", "none")
-            .style("cursor", "default")
             .style("font-family", "Impact")
             .style("fill", function(d, i) {
                 return fill(i);
@@ -51,99 +50,4 @@ function wordcloud(input, width, height) {
                 return d.text;
             });
     }
-
-// set the viewbox to content bounding box (zooming in on the content, effectively trimming whitespace)
-
-    var svg = document.getElementsByTagName("svg")[0];
-    var bbox = svg.getBBox();
-    var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
-    svg.setAttribute("viewBox", viewBox);
 }
-
-/*
-function wordcloud(input, width, height) {
-    var fill = d3.scale.category20();
-
-    d3.layout.cloud().size([width, height])
-        .words(input.map(function(d) {
-            return {text: d.word, size: d.weight};
-        }))
-        .padding(5)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .font("Impact")
-        .fontSize(function(d) { return d.size; })
-        .on("end", draw)
-        .start();
-
-}
-
-function draw(words) {
-    d3.select("#cloud").append("svg")
-        .attr("width", 300)
-        .attr("height", 300)
-        .append("g")
-        .attr("transform", "translate(150,150)")
-        .selectAll("text")
-        .data(words)
-        .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(i); })
-        .attr("text-anchor", "middle")
-        .attr("transform", function(d) {
-
-            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
-}
-function drawUpdate(words){
-    d3.layout.cloud().size([500, 500])
-        .words(words)
-        .padding(5)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .font("Impact")
-        .fontSize(function(d) { return d.size; })
-        .start();
-
-
-    d3.select("svg")
-        .selectAll("g")
-        .attr("transform", "translate(150,150)")
-        .selectAll("text")
-        .data(words).enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(i); })
-
-        .attr("transform", function(d) {
-
-            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
-
-
-
-}
-
-setInterval(function () {
-    var d_new = data;
-    d_new.push({word:randomWord(),weight:randomWeight()});
-
-    drawUpdate(d_new.map(function(d) {
-        return {text: d.word, size: d.weight};
-    }));
-}, 1500);
-
-function randomWord() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-    for( var i=0; i < 5; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-function randomWeight(){
-    var r = Math.round(Math.random() * 100);
-    return r;
-}*/
