@@ -184,7 +184,7 @@ function processTags(tags) {
         t += tag.tag + ", ";
         if(index == (tags.length - 1)) {
             //remove trailing comma
-            t.replace(/,(\s+)?$/, '');
+            t.substring(0, str.length - 2);
             tagsToTextArea(t);
         }
     });
