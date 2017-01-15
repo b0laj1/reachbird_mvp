@@ -39,7 +39,7 @@ function calculateDeviationFromExpectation($actual, $expected) {
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="emoji-picker-gh-pages/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="de/css/style.css">
     <link rel="stylesheet" type="text/css" href="css/overlay.css">
@@ -83,30 +83,30 @@ function calculateDeviationFromExpectation($actual, $expected) {
                 <span class="count_bottom"><?php echo calculateDeviationFromExpectation($user['eng_median'], $user['exp_eng_median']); ?></span>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-clock-o"></i>Likes</span>
+                <span class="count_top"><i class="fa fa-thumbs-up"></i>Likes</span>
                 <div class="count"><?php echo $user['likes_median']; ?></div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Comments</span>
+                <span class="count_top"><i class="fa fa-comment"></i> Comments</span>
                 <div class="count"><?php echo $user['comm_median']; ?></div>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Posts/Day</span>
+                <span class="count_top"><i class="fa fa-share-alt"></i> Posts/Day</span>
                 <div class="count"><?php
                     echo ($user['posts_per_day'] < 1 ? " < 1 " : number_format((float)$user['posts_per_day'], 2, '.', '') ); ?>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Hours btw Posts</span>
+                <span class="count_top"><i class="fa fa-clock-o"></i> Hours btw Posts</span>
                 <div class="count"><?php
                     echo (number_format((float)$user['hours_between_posts_mean'], 2, '.', '') ); ?>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Main Topic Post %</span>
+                <span class="count_top"><i class="fa fa-hand-peace-o"></i> Main Topic Post %</span>
                 <div class="count"><?php
                     echo (number_format((float)$user['main_topic'] * 100, 2, '.', '') ) . "%"; ?></div>
             </div>
