@@ -1,7 +1,6 @@
 <?php
 require 'vendor/autoload.php';
 
-$chart_data = \Reachbird\Services\views::getLastTenPostsData($_SESSION['user_id']);
 $user = \Reachbird\Services\views::getSingleInfluencerData($_SESSION['user_id']);
 $user_topics = \Reachbird\Services\views::getUserTopics($user);
 $user_posts = \Reachbird\Services\views::getLastPosts($_SESSION['user_id'], 4);
@@ -23,6 +22,15 @@ function dateFromDate($date) {
     $timestamp = strtotime($date);
 
     return date('d', $timestamp);
+}
+
+function calculateDeviationFromExpectation($actual, $expected) {
+    $class = $expected > $actual ? 'red' : 'green';
+    $arrow = $expected > $actual ? 'fa fa-sort-desc' : 'fa fa-sort-asc';
+
+    $exp = (($actual - $expected) / $expected) * 100;
+    $exp = number_format((float)$exp, 2, '.', '');
+    return "<i class=\"$class\"><i class='$arrow'></i>$exp% </i> deviation from expectation";
 }
 
 ?>
@@ -72,64 +80,44 @@ function dateFromDate($date) {
     <div class="col-md-4 col-xs-12">
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-                <div class="count">2500</div>
-                <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-user"></i> Median Engagement</span>
+                <div class="count"><?php echo $user['eng_median']; ?></div>
+                <span class="count_bottom"><?php echo calculateDeviationFromExpectation($user['eng_median'], $user['exp_eng_median']); ?></span>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-                <div class="count">123.50</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-clock-o"></i> Median Likes</span>
+                <div class="count"><?php echo $user['likes_median']; ?></div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-                <div class="count green">2,500</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-user"></i> Median Comments</span>
+                <div class="count"><?php echo $user['comm_median']; ?></div>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-                <div class="count">4,567</div>
-                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-user"></i> Posts per Day</span>
+                <div class="count"><?php
+                    echo ($user['posts_per_day'] < 1 ? " < 1 " : number_format((float)$user['posts_per_day'], 2, '.', '') )
+                        . "post(s) per day"; ?>
+                </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-                <div class="count">2,315</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-user"></i> Avg Hours between Posts</span>
+                <div class="count"><?php
+                    echo (number_format((float)$user['hours_between_posts_mean'], 2, '.', '') ); ?>
+                </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-                <div class="count">7,325</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                <span class="count_top"><i class="fa fa-user"></i> Main Topic Post %</span>
+                <div class="count"><?php
+                    echo (number_format((float)$user['main_topic'] * 100, 2, '.', '') ) . "%"; ?></div>
             </div>
         </div>
     </div>
 
     <div class="col-md-4 col-xs-12">
         <div id="cloud"></div>
-        <!--<div class="row tile_count">
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-                <div class="count">2500</div>
-                <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-                <div class="count">123.50</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-                <div class="count green">2,500</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="clearfix"></div>-->
-        <!--<div class="row tile_count">
-
-        </div>-->
     </div>
 </div>
 <div class="clearfix"></div>
@@ -143,10 +131,6 @@ function dateFromDate($date) {
                     <img src="<?php echo $post['display_src']; ?>" alt="" class="img-responsive">
                 </div>
                 <div class="right col-md-5">
-                    <!--<div class="message_date">
-                    <h3 class="date text-info"><?php /*echo dateFromDate($post['timestamp_str']); */?></h3>
-                    <p class="month"><?php /*echo monthFromDate($post['timestamp_str']); */?></p>
-                </div>-->
                     <div class="message_wrapper">
                         <h4 class="heading"><?php echo $post['username']; ?></h4>
                         <blockquote class="message"><?php echo substr($post['caption'], 0, 100) . "..."; ?></blockquote>
