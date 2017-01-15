@@ -118,12 +118,13 @@ require 'vendor/autoload.php';
 
             $('#target').addClass('loading');
             $.ajax({
-                type: "GET",
-                url: url + predicate + "/",
+                type: "POST",
+                url: 'get_engagement.php',
+                data: {url: url + predicate + "/"},
 
                 success: function(response) {
                     $('#target').loadingOverlay('remove');
-                    alert(response)
+                    alert(response);
                 },
                 error: function (err) {
                     alert("some error occurred" + JSON.stringify(err));
