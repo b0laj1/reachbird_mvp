@@ -42,6 +42,10 @@ class views
                 'size' => intval($user[$v['topic']] * 500)
             ];
         }
+        //remove zero values
+        if(($key = array_search(0, $return)) !== false) {
+            unset($return[$key]);
+        }
         return json_encode($return);
     }
 
