@@ -29,7 +29,7 @@ function calculateDeviationFromExpectation($deviation) {
     $arrow = $deviation < 1 ? 'fa fa-sort-desc' : 'fa fa-sort-asc';
 
 
-    $exp = number_format((float)$deviation, 2, '.', '');
+    $exp = number_format((float)$deviation, 5, '.', '');
     return "<i class=\"$class\"><i class='$arrow'></i>$exp </i>";
 }
 
