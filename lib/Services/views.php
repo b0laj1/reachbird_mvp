@@ -37,10 +37,11 @@ class views
         //{ text: 'javascript', size: 40 }
         $labels = data::getAllTopicLabels();
         foreach ($labels as $v) {
-            if($user[$v['topic']] !== 0) {
+            $size = intval($user[$v['topic']] * 500);
+            if( $size !== 0) {
                 $return[] = [
                     'text' => $v['name'],
-                    'size' => intval($user[$v['topic']] * 500)
+                    'size' => $size
                 ];
             }
         }
