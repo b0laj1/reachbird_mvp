@@ -37,14 +37,12 @@ class views
         //{ text: 'javascript', size: 40 }
         $labels = data::getAllTopicLabels();
         foreach ($labels as $v) {
-            $return[] = [
-                'text' => $v['name'],
-                'size' => intval($user[$v['topic']] * 500)
-            ];
-        }
-        //remove zero values
-        if(($key = array_search(0, $return)) !== false) {
-            unset($return[$key]);
+            if($user[$v['topic'] !== 0) {
+                $return[] = [
+                    'text' => $v['name'],
+                    'size' => intval($user[$v['topic']] * 500)
+                ];
+            }
         }
         return json_encode($return);
     }
