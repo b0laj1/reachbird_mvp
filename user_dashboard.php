@@ -24,13 +24,13 @@ function dateFromDate($date) {
     return date('d', $timestamp);
 }
 
-function calculateDeviationFromExpectation($actual, $expected) {
-    $class = $expected > $actual ? 'red' : 'green';
-    $arrow = $expected > $actual ? 'fa fa-sort-desc' : 'fa fa-sort-asc';
+function calculateDeviationFromExpectation($deviation) {
+    $class = $deviation < 1   ? 'red' : 'green';
+    $arrow = $deviation < 1 ? 'fa fa-sort-desc' : 'fa fa-sort-asc';
 
-    $exp = (($actual - $expected) / $expected) * 100;
-    $exp = number_format((float)$exp, 2, '.', '');
-    return "<i class=\"$class\"><i class='$arrow'></i>$exp% </i> deviation from expectation";
+
+    $exp = number_format((float)$deviation, 2, '.', '');
+    return "<i class=\"$class\"><i class='$arrow'></i>$exp </i>";
 }
 
 ?>
@@ -80,7 +80,7 @@ function calculateDeviationFromExpectation($actual, $expected) {
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i>Engagement</span>
                 <div class="count"><?php echo $user['eng_median']; ?></div>
-                <span class="count_bottom"><?php echo calculateDeviationFromExpectation($user['eng_median'], $user['exp_eng_median']); ?></span>
+                <span class="count_bottom"><?php echo calculateDeviationFromExpectation($user['added_eng_median']); ?></span>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-thumbs-up"></i>Likes</span>
