@@ -97,7 +97,7 @@ class views
         $db = new db();
         $posts = $db->getLastPosts($id, $count);
         if(! empty($posts) ) {
-            return $posts;
+            return array_reverse($posts);
         }
         return [];
     }
