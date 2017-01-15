@@ -78,30 +78,29 @@ function calculateDeviationFromExpectation($actual, $expected) {
     <div class="col-md-4 col-xs-12">
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Median Engagement</span>
+                <span class="count_top"><i class="fa fa-user"></i>Engagement</span>
                 <div class="count"><?php echo $user['eng_median']; ?></div>
                 <span class="count_bottom"><?php echo calculateDeviationFromExpectation($user['eng_median'], $user['exp_eng_median']); ?></span>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-clock-o"></i> Median Likes</span>
+                <span class="count_top"><i class="fa fa-clock-o"></i>Likes</span>
                 <div class="count"><?php echo $user['likes_median']; ?></div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Median Comments</span>
+                <span class="count_top"><i class="fa fa-user"></i> Comments</span>
                 <div class="count"><?php echo $user['comm_median']; ?></div>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Posts per Day</span>
+                <span class="count_top"><i class="fa fa-user"></i> Posts/Day</span>
                 <div class="count"><?php
-                    echo ($user['posts_per_day'] < 1 ? " < 1 " : number_format((float)$user['posts_per_day'], 2, '.', '') )
-                        . "post(s) per day"; ?>
+                    echo ($user['posts_per_day'] < 1 ? " < 1 " : number_format((float)$user['posts_per_day'], 2, '.', '') ); ?>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Avg Hours between Posts</span>
+                <span class="count_top"><i class="fa fa-user"></i> Hours btw Posts</span>
                 <div class="count"><?php
                     echo (number_format((float)$user['hours_between_posts_mean'], 2, '.', '') ); ?>
                 </div>
