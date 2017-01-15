@@ -50,7 +50,7 @@ class db
     public function getLastPosts($id, $count) {
         $return = [];
         $collection = $this->client->selectCollection(Config\Config::DB_DATABASE, self::COLLECTION_SAMPLES);
-        $cursor = $collection->find(['owner.id'=>$id], [ 'limit' => $count, 'sort'=>['date'=> -1] ]);
+        $cursor = $collection->find(['owner.id'=>$id], [ 'limit' => $count, 'sort'=>['date'=> 1] ]);
 
         if(! empty($cursor)) {
             return array_reverse($cursor->toArray());
