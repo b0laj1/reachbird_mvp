@@ -113,7 +113,7 @@ require 'vendor/autoload.php';
             var caption = $('#caption').val();
             var image_tags = tags.substring(0, tags.length - 1);
 
-            alert(image_tags + " " + influencer + " " $ caption);
+            alert(image_tags + " " + influencer + " " + caption);
         }
         function getInfluencerData(influencer) {
             var id = influencer.value;
