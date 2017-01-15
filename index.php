@@ -81,11 +81,14 @@ require 'vendor/autoload.php';
 
 
     <div style="float:left;margin-left: 3%;width: 90%; margin-bottom: 50px">
-        <label>Suggestion:</label>
-        <input style="width: 100%;" disabled="disabled" type="text" name="suggestion" id="sug">
+        <label>Predicted Engagement:</label>
+        <input style="width: 100%;" disabled="disabled" type="text" name="suggestion" id="eng">
 
-        <label>Possible Engagement:</label>
-        <input style="width: 100%;" disabled="disabled" type="text" name="predicted_engagement" id="posseng">
+        <label>Predicted Likes:</label>
+        <input style="width: 100%;" disabled="disabled" type="text" name="predicted_engagement" id="like">
+
+        <label>Predicted Comments:</label>
+        <input style="width: 100%;" disabled="disabled" type="text" name="predicted_engagement" id="comm">
     </div>
 
 </div>
@@ -124,7 +127,15 @@ require 'vendor/autoload.php';
 
                 success: function(response) {
                     $('#target').loadingOverlay('remove');
-                    alert(response);
+                    var res = JSON.parse(response);
+                    if(res.status ==1) {
+                        var engagement = res.text.x_eng[0] * 100;
+                        var comments = res.text.x_comm[0];
+                        var likes = res.text.x_likes[0];
+                        $('#eng').val(engagement + "%");
+                        $('#comm').val(comments);
+                        $('#like').val(likes);
+                    }
                 },
                 error: function (err) {
                     alert("some error occurred" + JSON.stringify(err));
