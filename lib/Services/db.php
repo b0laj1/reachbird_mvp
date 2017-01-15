@@ -53,7 +53,7 @@ class db
         $cursor = $collection->find(['owner.id'=>$id], [ 'limit' => $count, 'sort'=>['date'=> -1] ]);
 
         if(! empty($cursor)) {
-            return $cursor->toArray();
+            return array_reverse($cursor->toArray());
         }
         return $return;
     }
