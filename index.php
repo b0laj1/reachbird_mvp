@@ -126,7 +126,7 @@ require 'vendor/autoload.php';
                     alert(response)
                 },
                 error: function (err) {
-                    alert("some error occurred" + err);
+                    alert("some error occurred" + JSON.stringify(err));
                     $('#target').loadingOverlay('remove');
                 }
             });
