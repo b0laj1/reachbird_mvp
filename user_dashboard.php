@@ -106,9 +106,9 @@ function calculateDeviationFromExpectation($deviation) {
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
-                <span class="count_top"><i class="fa fa-hand-peace-o"></i> Main Topic Post %</span>
+                <span class="count_top"><i class="fa fa-hand-peace-o"></i> Main Topic %</span>
                 <div class="count"><?php
-                    echo (number_format((float)$user['main_topic'] * 100, 2, '.', '') ) . "%"; ?></div>
+                    echo (number_format((float)$user['main_topic'] * 100, 2, '.', '') ) ; ?></div>
             </div>
         </div>
     </div>
