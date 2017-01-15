@@ -110,7 +110,7 @@ require 'vendor/autoload.php';
             var influencer = $('#influencer_select :selected').text();
 
             var tags = $('#image_tags').val();
-            var image_tags = tags.replace(", ", "-").substring(0, tags.length - 1);
+            var image_tags = tags.substring(0, tags.length - 1);
 
             alert(image_tags + " " + influencer);
         }

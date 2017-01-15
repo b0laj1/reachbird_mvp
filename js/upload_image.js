@@ -162,8 +162,6 @@ console.log('created new clarifai app');
                             var data = {tag: o.name, probability: o.value};
                             tags.push(data);
                             if(index == (x.length - 1)) {
-                                console.log('tags resolved');
-                                console.log('tags');
                                 resolve(tags);
                             }
                         }
@@ -181,7 +179,7 @@ console.log('created new clarifai app');
 function processTags(tags) {
     var t = "";
     tags.forEach(function (tag, index , arr) {
-        t += tag.tag + ", ";
+        t += tag.tag + "-";
         if(index == (tags.length - 1)) {
             //remove trailing comma
             t.substring(0, t.length - 2);
