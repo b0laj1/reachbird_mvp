@@ -67,7 +67,7 @@ require 'vendor/autoload.php';
             <div style="float: left; margin-left: 30px; width: 60%;">
                 <label>Caption:</label>
                 <p class="lead emoji-picker-container">
-                    <textarea class="form-control textarea-control"  style="height: 100px;" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
+                    <textarea class="form-control textarea-control"  id="caption" style="height: 100px;" placeholder="Write your caption here                                                     " data-emojiable="true" data-emoji-input="unicode"></textarea>
                 </p>
                 <label id="image_tags_label" class="hidden">Image Tags:</label>
                 <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
@@ -110,9 +110,10 @@ require 'vendor/autoload.php';
             var influencer = $('#influencer_select :selected').text();
 
             var tags = $('#image_tags').val();
+            var caption = $('#caption').val();
             var image_tags = tags.substring(0, tags.length - 1);
 
-            alert(image_tags + " " + influencer);
+            alert(image_tags + " " + influencer + " " $ caption);
         }
         function getInfluencerData(influencer) {
             var id = influencer.value;
