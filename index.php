@@ -72,7 +72,7 @@ require 'vendor/autoload.php';
                 <label id="image_tags_label" class="hidden">Image Tags:</label>
                 <p id="image_tags_output"><textarea id="image_tags" name="image_tags" class="hidden"></textarea> </p>
 
-                <input style="margin-top:5%;" type="submit" id="submit" value="Test" onclick="action()">
+                <input style="margin-top:5%;" type="button" disabled id="submit_button" value="Analyze" onclick="submitForAnalysis();">
             </div>
 
             <input type="file" accept="image/*" onchange="loadFile(event)" style="visibility:hidden;" id="de">
@@ -106,6 +106,14 @@ require 'vendor/autoload.php';
 
 
     <script>
+        function submitForAnalysis() {
+            var influencer = $('#influencer_select :selected').text();
+
+            var tags = $('#image_tags').val();
+            var image_tags = tags.replace(", ", "-").substring(0, tags.length - 1);
+
+            alert(image_tags + " " + influencer);
+        }
         function getInfluencerData(influencer) {
             var id = influencer.value;
             if(id) {

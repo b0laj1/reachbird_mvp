@@ -186,6 +186,7 @@ function processTags(tags) {
             //remove trailing comma
             t.substring(0, t.length - 2);
             tagsToTextArea(t);
+            $('#submit_button').prop("disabled", false);
         }
     });
 }
