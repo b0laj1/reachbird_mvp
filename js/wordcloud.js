@@ -1,5 +1,7 @@
 function wordcloud(input, width, height) {
     var fill = d3.scale.category20();
+    var maxSize = d3.max(input, function(d) { return d.size; }),
+        maxFont = 40;
 
     d3.layout.cloud()
         .size([width, height])
@@ -27,8 +29,7 @@ function wordcloud(input, width, height) {
             .data(words)
             .enter().append("text")
             .style("font-size", function(d) {
-
-                return (d.size > 30) ? "30px" : d.size + "px";
+                return ( (d.size / maxSize) * maxFont ) + "px";
             })
             .style("-webkit-touch-callout", "none")
             .style("-webkit-user-select", "none")
