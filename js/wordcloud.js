@@ -29,7 +29,8 @@ function wordcloud(input, width, height) {
             .data(words)
             .enter().append("text")
             .style("font-size", function(d) {
-                return ( (d.size / maxSize) * maxFont ) + "px";
+                var size= ( (d.size / maxSize) * maxFont );
+                return (size < 5 ? d.size : size ) + "px";
             })
             .style("-webkit-touch-callout", "none")
             .style("-webkit-user-select", "none")
