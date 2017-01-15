@@ -113,7 +113,24 @@ require 'vendor/autoload.php';
             var caption = $('#caption').val();
             var image_tags = tags.substring(0, tags.length - 1);
 
-            alert(image_tags + " " + influencer + " " + caption);
+            var url = "http://139.162.187.90:8000/predictor/";
+            var predicate = b64EncodeUnicode(influencer + "/" + caption  + "/" + image_tags);
+
+            $('#target').addClass('loading');
+            $.ajax({
+                type: "GET",
+                url: url + predicate
+
+                success: function(response) {
+                    $('#target').loadingOverlay('remove');
+                    alert(response)
+                },
+                error: function (err) {
+                    alert("some error occurred" + err);
+                    $('#target').loadingOverlay('remove');
+                }
+            });
+
         }
         function getInfluencerData(influencer) {
             var id = influencer.value;
@@ -172,6 +189,12 @@ require 'vendor/autoload.php';
 
         function afterLoading(){
             $('#target').loadingOverlay('remove');
+        }
+
+        function b64EncodeUnicode(str) {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+                return String.fromCharCode('0x' + p1);
+            }));
         }
 
     </script>
