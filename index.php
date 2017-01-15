@@ -119,7 +119,7 @@ require 'vendor/autoload.php';
             $('#target').addClass('loading');
             $.ajax({
                 type: "GET",
-                url: url + predicate,
+                url: url + predicate + "/",
 
                 success: function(response) {
                     $('#target').loadingOverlay('remove');
