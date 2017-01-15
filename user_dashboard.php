@@ -70,7 +70,7 @@ function dateFromDate($date) {
     </div>
 
     <div class="col-md-4 col-xs-12">
-        <!--<div class="row tile_count">
+        <div class="row tile_count">
             <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
                 <div class="count">2500</div>
@@ -104,7 +104,7 @@ function dateFromDate($date) {
                 <div class="count">7,325</div>
                 <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
             </div>
-        </div>-->
+        </div>
     </div>
 
     <div class="col-md-4 col-xs-12">
@@ -175,33 +175,7 @@ function dateFromDate($date) {
 <script type="text/javascript" src="https://cdn.rawgit.com/jasondavies/d3-cloud/v1.2.1/build/d3.layout.cloud.js"></script>
 <script type="text/javascript" src="js/wordcloud.js"></script>
 <script>
-    drawLineChart('myLineChart', <?php echo $chart_data; ?>);
     wordcloud(<?php echo $user_topics; ?>, 300, 300);
-
-    function drawBarChart(element_id, data) {
-        var ctx = document.getElementById(element_id);
-        var mybarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    }
-
-    function drawLineChart(element_id, data) {
-        var ctx = document.getElementById(element_id);
-        var lineChart = new Chart(ctx, {
-            type: 'line',
-            data: data
-        });
-    }
 
 </script>
 </body>
