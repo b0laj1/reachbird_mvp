@@ -133,9 +133,9 @@ require 'vendor/autoload.php';
                         var engagement = res.text.x_eng[0] * 100;
                         var comments = res.text.x_comm[0];
                         var likes = res.text.x_likes[0];
-                        $('#eng').val(engagement + "%");
-                        $('#comm').val(comments);
-                        $('#like').val(likes);
+                        $('#eng').val(engagement.toFixed(2) + "%");
+                        $('#comm').val(comments.toFixed(2));
+                        $('#like').val(likes.toFixed(2));
                     }
                 },
                 error: function (err) {
