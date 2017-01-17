@@ -135,7 +135,7 @@ require 'vendor/autoload.php';
                         var likes = res.text.x_likes[0];
                         $('#eng').val(roundToTwo(engagement) + "%");
                         $('#comm').val(roundToTwo(comments));
-                        $('#like').val(roundToTwo(likes * 100));
+                        $('#like').val(roundToTwo(likes));
                     }
                 },
                 error: function (err) {
