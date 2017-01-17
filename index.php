@@ -133,9 +133,9 @@ require 'vendor/autoload.php';
                         var engagement = res.text.x_eng[0] * 100;
                         var comments = res.text.x_comm[0];
                         var likes = res.text.x_likes[0];
-                        $('#eng').val(Math.round((engagement * 100) / 100) + "%");
-                        $('#comm').val(Math.round((comments * 100) / 100));
-                        $('#like').val(Math.round((likes * 100) / 100));
+                        $('#eng').val(roundToTwo(engagement) + "%");
+                        $('#comm').val(roundToTwo(comments));
+                        $('#like').val(roundToTwo(likes * 100));
                     }
                 },
                 error: function (err) {
@@ -208,6 +208,10 @@ require 'vendor/autoload.php';
             return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
                 return String.fromCharCode('0x' + p1);
             }));
+        }
+
+        function roundToTwo(num) {
+            return +(Math.round(num + "e+2")  + "e-2");
         }
 
     </script>
