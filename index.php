@@ -131,9 +131,9 @@ require 'vendor/autoload.php';
                     var res = JSON.parse(response);
                     if(res.status ==1) {
                         console.log(res.text);
-                        var engagement = res.text.x_eng[0] * 100;
-                        var comments = res.text.x_comm[0];
-                        var likes = res.text.x_likes[0];
+                        var engagement = res.text.x_eng * 100;
+                        var comments = res.text.x_comm;
+                        var likes = res.text.x_likes;
                         $('#eng').val(roundToTwo(engagement) + "%");
                         $('#comm').val(roundToTwo(comments));
                         $('#like').val(roundToTwo(likes));
