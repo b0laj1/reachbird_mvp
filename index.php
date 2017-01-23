@@ -117,7 +117,7 @@ require 'vendor/autoload.php';
             var image_tags = tags.substring(0, tags.length - 1);
 
             var url = "http://139.162.187.90:8000/predictor/";
-            var predicate = influencer + "/" + caption  + "/" + image_tags;
+            var predicate = influencer + "/" + encodeURIComponent(caption)  + "/" + image_tags;
             //var predicate = b64EncodeUnicode(influencer + "/" + caption  + "/" + image_tags);
 
             $('#target').addClass('loading');
